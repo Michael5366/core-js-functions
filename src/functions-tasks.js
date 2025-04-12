@@ -123,7 +123,7 @@ function getPolynom(...args) {
 function memoize(func) {
   let called = false;
   let result;
-  return function () {
+  return () => {
     if (!called) {
       result = func();
       called = true;
@@ -210,7 +210,7 @@ function logger(func, logFunc) {
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
 function partialUsingArguments(fn, ...args1) {
-  return function (...args2) {
+  return (...args2) => {
     return fn(...args1, ...args2);
   };
 }
